@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//namespace for Routes
+use App\Http\Controllers\PagesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,20 +16,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
+my comments and samples
+
 Route::get('/hello', function () {
     return '<h1>Hello World<h1>';
 });
-*/
 
-Route::get('/about', function() {
-    return view('pages.about');
+Route::get('/users/{id}/{name}', function($id, $name) {
+    return 'This is user '.$name. ' with an id of '.$id;
 });
 
+*/
 Route::get('/login', function() {
     return view('pages.login_page');
 });
+
+// Testing
+Route::get('/', [PagesController::class, 'index'] );
+Route::get('/about', [PagesController::class, 'about']);
+Route::get('/services', [PagesController::class, 'services']);

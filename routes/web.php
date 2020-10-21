@@ -29,7 +29,7 @@ Route::get('/users/{id}/{name}', function($id, $name) {
 
 */
 
-// Testing
+// Acutual routes
 Route::get('/', [PagesController::class, 'index'] );
 
 Auth::routes();

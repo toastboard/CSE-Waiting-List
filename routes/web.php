@@ -29,7 +29,7 @@ Route::get('/users/{id}/{name}', function($id, $name) {
 
 */
 
-// Acutual routes
+// Routes to home (sample form page) and login
 Route::get('/', [PagesController::class, 'index'] );
 
 Auth::routes();

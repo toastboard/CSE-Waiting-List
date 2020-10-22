@@ -36,7 +36,7 @@ class UserFactory extends Factory
             'email' => $netID."@msstate.edu",
             'email_verified_at' => now(),
             'major' => "CS",
-            'password' => $this->faker->lexify("??????????"), // password
+            'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
         ];
     }

@@ -27,7 +27,7 @@ class UserFactory extends Factory
         $last_name = $this->faker->lastName;
 
         $first_initial = substr($first_name[0], 0, 1);
-        $last_initial = substr($last_name[1], 0, 1);
+        $last_initial = substr($last_name[0], 0, 1);
         $netID = strtolower($first_initial) . strtolower($last_initial) . rand(1, 400);
 
         return [

@@ -4,9 +4,9 @@
 
 @section('content')
 
-<h3>This page should display only if the user is logged in.</h3>
+<h3>This is the form page and will appear if a user is logged in </h3>
 
-<h3>The user's id is {{ Auth::user()->id }} </h3>
+<h3>The user's id is {{ Auth::user()->id }} (pulled from databse)</h3>
 
 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
     Logout

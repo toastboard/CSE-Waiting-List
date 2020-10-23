@@ -30,12 +30,14 @@ class UserFactory extends Factory
         $last_initial = substr($last_name[0], 0, 1);
         $netID = strtolower($first_initial) . strtolower($last_initial) . rand(1, 400);
 
+        $majors = array("CS", "SE");
+
         return [
             'first_name' => $first_name,
             'last_name' => $last_name,
             'email' => $netID."@msstate.edu",
             'email_verified_at' => now(),
-            'major' => "CS",
+            'major' => $majors[rand(0,1)],
             'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
         ];

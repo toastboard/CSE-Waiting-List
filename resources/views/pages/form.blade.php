@@ -5,24 +5,44 @@
 @section('content')
     {!! Form::open(['method' => 'post']) !!}
     <div class='form_group'>
-        {{Form::label('first_name', 'First Name')}}
+        {{Form::label('studID', 'MSU ID: ')}}
+        {{Form::text('studID', '', ['class' => 'form-control'])}}
+    </div>    <div class='form_group'>
+        {{Form::label('studemail', 'Student email: ')}}
+        {{Form::text('studemail', '', ['class' => 'form-control'])}}
+    </div>
+    <div class='form_group'>
+        {{Form::label('first_name', 'First Name: ')}}
         {{Form::text('first_name', '', ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
-        {{Form::label('last_name', 'Last Name')}}
+        {{Form::label('last_name', 'Last Name: ')}}
         {{Form::text('last_name', '', ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
-        {{Form::label('student_ID', 'MSU ID')}}
-        {{Form::text('student_ID', '', ['class' => 'form-control'])}}
+        {{Form::label('studmajor', 'Major: ')}}
+        {{Form::text('studmajor', '', ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
-        {{Form::label('course_num', 'Course')}}
+        {{Form::label('course_num', 'Course: ')}}
         {{Form::text('course_num', '', ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
-        {{Form::label('section_num', 'Section')}}
-        {{Form::text('section_num', '', ['class' => 'form-control'])}}
+        {{Form::label('overtype', 'Override type: ')}}
+        {{Form::select('overtype', ['Major' => 'Major', 'Capacity' => 'Capacity', 'Prerequisite' => 'Prerequisite'], ['class' => 'form-control'])}}
+    </div>
+    <div class='form_group'>
+        {{Form::label('overtype', 'Campus: ')}}
+        {{Form::select('overtype', ['Starkville' => 'Starkville', 'Gulf Coast' => 'Gulf Coast', 'Distance' => 'Distance'], ['class' => 'form-control'])}}
+    </div>
+    <div class='form_group'>
+        {{Form::label('currhours', 'Current Hours: ')}}
+        {{Form::number('currhours', '', ['class' => 'form-control'])}}
+    </div>
+    <div class='form_group'>
+        {{Form::label('requiredforgrad', 'Required for Graduation: ')}}
+        Yes {{Form::radio('requiredforgrad', 'Yes', false, ['class' => 'form-control'])}}
+        No  {{Form::radio('requiredforgrad', 'No', false, ['class' => 'form-control'])}}
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}

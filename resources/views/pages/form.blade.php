@@ -1,9 +1,13 @@
 @extends('layouts.default')
 
-@section('title')
-    Form Submission
-@endsection
+@section('title', 'Form Submission')
 
 @section('content')
-    {{-- forms belong inside of this --}}
+    {!! Form::open(['method' => 'post']) !!}
+    <div class='form_group'>
+        {{Form::label('first_name', 'First Name')}}
+        {{Form::text('first_name', '', ['class' => 'form-control'])}}
+    </div>
+    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+    {!! Form::close() !!}
 @endsection

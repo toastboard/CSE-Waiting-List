@@ -48,7 +48,17 @@ class FormController extends Controller
         $waiting_list_entry->comments = $request->input('comments');
         $waiting_list_entry->save();
 
-        return view('pages.form');
+        
+        return view("pages.confirmation", 
+        ["course_num"=>$request->input('course_num'),
+        "campus"=>$request->input('campus'),
+        "overtype"=>$request->input('overtype'),
+        "comments"=>$request->input('comments'),
+        
+        
+        ]);
+        
     
     }
+    
 }

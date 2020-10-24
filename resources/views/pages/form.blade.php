@@ -6,26 +6,26 @@
     {!! Form::open(['method' => 'post']) !!}
     <div class='form_group'>
         {{Form::label('studID', 'MSU ID: ')}}
-        {{Form::text('studID', '', ['class' => 'form-control'])}}
+        {{Form::text('studID', $id, ['readonly', 'class' => 'form-control'])}}
     </div>    <div class='form_group'>
         {{Form::label('studemail', 'Student email: ')}}
-        {{Form::text('studemail', '', ['class' => 'form-control'])}}
+        {{Form::text('studemail', $email, ['readonly', 'class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('first_name', 'First Name: ')}}
-        {{Form::text('first_name', '', ['class' => 'form-control'])}}
+        {{Form::text('first_name', $first_name, ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('last_name', 'Last Name: ')}}
-        {{Form::text('last_name', '', ['class' => 'form-control'])}}
+        {{Form::text('last_name', $last_name, ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('studmajor', 'Major: ')}}
-        {{Form::text('studmajor', '', ['class' => 'form-control'])}}
+        {{Form::text('studmajor', $major, ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('course_num', 'Course: ')}}
-        {{Form::text('course_num', '', ['class' => 'form-control'])}}
+        {{Form::select('course_num', $courses, ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('overtype', 'Override type: ')}}

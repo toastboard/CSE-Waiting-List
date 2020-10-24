@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Course;
 use App\Models\Waiting_List;
 
 class FormController extends Controller
@@ -14,7 +16,14 @@ class FormController extends Controller
      */
     public function index()
     {
-        return view('pages.form');
+        $id = '903113053';
+        $email = 'test@test.com';
+        $first_name = 'Testfirst';
+        $last_name = 'Testlast';
+        $major = 'CS';
+        $courses = Course::all()->pluck('full_name', 'full_name');
+
+        return view('pages.form', ['id' => $id, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses]);
     }
 
     public function store(Request $request)
@@ -26,7 +35,7 @@ class FormController extends Controller
             'first_name' => 'required|alpha',
             'last_name' => 'required|alpha',
             'studemail' => 'required|email',
-            'course_num' => 'required|alpha_num',
+            'course_num' => 'required',
             'currhours' => 'required|numeric'
         ]);
 

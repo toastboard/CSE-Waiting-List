@@ -20,7 +20,7 @@ class CreateWaitingListsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('major');
-            $table->integer('course_number');
+            $table->string('course_number');
             $table->string('type');
             $table->string('campus');
             $table->string('date'); // could make an actual date entry?

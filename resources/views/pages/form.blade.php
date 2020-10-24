@@ -32,8 +32,8 @@
         {{Form::select('overtype', ['Major' => 'Major', 'Capacity' => 'Capacity', 'Prerequisite' => 'Prerequisite'], ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
-        {{Form::label('overtype', 'Campus: ')}}
-        {{Form::select('overtype', ['Starkville' => 'Starkville', 'Gulf Coast' => 'Gulf Coast', 'Distance' => 'Distance'], ['class' => 'form-control'])}}
+        {{Form::label('campus', 'Campus: ')}}
+        {{Form::select('campus', ['Starkville' => 'Starkville', 'Gulf Coast' => 'Gulf Coast', 'Distance' => 'Distance'], ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('currhours', 'Current Hours: ')}}
@@ -43,6 +43,10 @@
         {{Form::label('requiredforgrad', 'Required for Graduation: ')}}
         Yes {{Form::radio('requiredforgrad', 'Yes', false, ['class' => 'form-control'])}}
         No  {{Form::radio('requiredforgrad', 'No', false, ['class' => 'form-control'])}}
+    </div>
+    <div class='form_group'>
+        {{Form::label('comments', 'Comments: ')}}
+        {{Form::text('comments', '', ['class' => 'form-control'])}}
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}

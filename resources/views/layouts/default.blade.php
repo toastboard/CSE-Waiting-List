@@ -7,6 +7,7 @@
         <title>@yield('title')</title>
     </head>
     <body class="antialiased">
+        @include('inc.messages')
         @yield('content')
     </body>
 </html>

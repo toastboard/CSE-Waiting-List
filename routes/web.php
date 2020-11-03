@@ -36,4 +36,6 @@ Auth::routes();
 
 Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name('form');
 
+Route::post('/form', [App\Http\Controllers\FormController::class, 'store']);
+
 Route::get('/logout', 'LoginController@logout');

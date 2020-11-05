@@ -30,9 +30,14 @@ class UserFactory extends Factory
         $last_initial = substr($last_name[0], 0, 1);
         $netID = strtolower($first_initial) . strtolower($last_initial) . rand(1, 400);
 
+        $msuid_append = range(0, 6);
+        shuffle($msuid_append);
+        $msuid = "90" . implode("", $msuid_append);
+
         $majors = array("CS", "SE");
 
         return [
+            'msuid' => $msuid,
             'first_name' => $first_name,
             'last_name' => $last_name,
             'email' => $netID."@msstate.edu",

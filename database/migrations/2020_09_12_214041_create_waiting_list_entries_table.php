@@ -15,13 +15,15 @@ class CreateWaitingListEntriesTable extends Migration
     {
         Schema::create('waiting_list_entries', function (Blueprint $table) {
             $table->id('list');
-            $table->foreignId('id')->constrained('users');
-            $table->foreignId('email')->constrained('users');
+            $table->integer('msuid');
+            $table->foreign('msuid')->references('msuid')->on('users');
+            $table->string('email');
+            $table->foreign('email')->references('email')->on('users');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('major');
-            $table->foreignId('field')->constrained('courses');
-            $table->foreignId('course_number')->constrained('courses');
+            $table->string('field');
+            $table->string('course_selection');
             $table->string('type');
             $table->string('campus');
             $table->string('date'); // could make an actual date entry?

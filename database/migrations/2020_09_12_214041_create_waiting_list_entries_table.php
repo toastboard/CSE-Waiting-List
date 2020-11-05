@@ -22,16 +22,13 @@ class CreateWaitingListEntriesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('major');
-            $table->string('field');
             $table->string('course_selection');
             $table->string('type');
             $table->string('campus');
-            $table->string('date'); // could make an actual date entry?
-            $table->string('time');
             $table->string('graduation_time');
             $table->integer('current_hours');
             $table->string('is_required');
-            $table->string('comments');
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }

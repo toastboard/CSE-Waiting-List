@@ -11,6 +11,6 @@ class Course extends Model
 
     function getFullNameAttribute()
     {
-        return "{$this->field}  {$this->course_number}  {$this->course_name}";
+        return "{$this->field} {$this->course_number} {$this->course_name}";
     }
 }

@@ -24,7 +24,7 @@ class FormController extends Controller
         $major = Auth::user()->major;
         $courses = Course::all()->pluck('full_name', 'full_name');
 
-        return view('pages.form', ['id' => $msuid, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses]);
+        return view('pages.form', ['msuid' => $msuid, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses]);
     }
 
     public function store(Request $request)

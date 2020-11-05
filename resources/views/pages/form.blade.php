@@ -6,7 +6,7 @@
     {!! Form::open(['method' => 'post']) !!}
     <div class='form_group'>
         {{Form::label('studID', 'MSU ID: ')}}
-        {{Form::text('studID', $id, ['readonly', 'class' => 'form-control'])}}
+        {{Form::text('studID', $msuid, ['readonly', 'class' => 'form-control'])}}
     </div>    <div class='form_group'>
         {{Form::label('studemail', 'Student email: ')}}
         {{Form::text('studemail', $email, ['readonly', 'class' => 'form-control'])}}

@@ -29,11 +29,15 @@
     </div>
     <div class='form_group'>
         {{Form::label('overtype', 'Override type: ')}}
-        {{Form::select('overtype', ['Major' => 'Major', 'Capacity' => 'Capacity', 'Prerequisite' => 'Prerequisite'], ['class' => 'form-control'])}}
+        {{Form::select('overtype', ['Major' => 'Major', 'Capacity' => 'Capacity', 'Prerequisite' => 'Prerequisite', 'Classification' => 'Classification', 'Repeat Limit' => 'Repeat Limit', 'College' => 'College'], ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('campus', 'Campus: ')}}
         {{Form::select('campus', ['Starkville' => 'Starkville', 'Gulf Coast' => 'Gulf Coast', 'Distance' => 'Distance'], ['class' => 'form-control'])}}
+    </div>
+    <div class="form-group  ">
+        {{Form::label('graddate', 'Expected Graduation Date:')}}
+        {{Form::date('graddate', '', ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('currhours', 'Current Hours: ')}}

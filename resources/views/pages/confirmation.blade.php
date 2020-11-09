@@ -11,6 +11,6 @@ Comments:
 {{ $comments }}
 </div>
 
-<a href="{{url('/form')}}">Return to Form Page</a>
+<a href="{{url('/dashboard')}}">Return to Dashboard Page</a>
 
 @endsection

@@ -34,8 +34,10 @@ Route::get('/', [PagesController::class, 'index'] );
 
 Auth::routes();
 
-Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name('form');
+Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name('form')->middleware('auth');
 
 Route::post('/form', [App\Http\Controllers\FormController::class, 'store']);
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/logout', 'LoginController@logout');

@@ -41,7 +41,7 @@
         {{Form::select('overtype', ['Major' => 'Major', 'Capacity' => 'Capacity', 'Prerequisite' => 'Prerequisite', 'Classification' => 'Classification', 'Repeat Limit' => 'Repeat Limit', 'College' => 'College'], ['class' => 'form-control'])}}
         @error('overtype')
         <div class="alert-danger">{{$message}}</div>
-        @enderror    
+        @enderror
     </div>
     <div class='form_group'>
         {{Form::label('campus', 'Campus: ')}}
@@ -61,8 +61,8 @@
         @error('currhours')
         <div class="alert-danger">{{$message}}</div>
         @enderror
-        
-        
+
+
     </div>
     <div class='form_group'>
         {{Form::label('requiredforgrad', 'Required for Graduation: ')}}
@@ -81,6 +81,17 @@
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
+
+
+    <a href="{{ route('dashboard') }}">
+	    Return to Dashboard
+	</a>
+
+	<form id="dashboard-form" action="{{ route('dashboard') }}" method="POST" style="display: none;">
+	    {{ csrf_field() }}
+    </form>
+
+    <br>
 
 	<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 	    Logout

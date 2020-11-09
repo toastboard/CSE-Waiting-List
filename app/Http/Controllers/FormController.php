@@ -51,7 +51,8 @@ class FormController extends Controller
             'studemail' => 'required|email',
             'course_num' => 'required',
             'currhours' => 'required|numeric',
-            'requiredforgrad' => 'required'
+            'requiredforgrad' => 'required',
+            'studmajor'=> 'required'
         ]);
 
         $waiting_list_entry = new Waiting_List_Entry;

@@ -138,6 +138,12 @@ return [
             'required' => 'The required for graduation field needs to be selected.',
 
         ],
+
+        'studmajor' => [
+            'required' => 'The major field is required.',
+
+        ],
+
     ],
     
     /*

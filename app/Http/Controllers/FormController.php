@@ -30,6 +30,18 @@ class FormController extends Controller
     public function store(Request $request)
     {
         // return view('pages.test')->with('test', $request->input('test'));
+/*
+        //validation rules
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'overtype'=>'required',
+            'campus'=>'required',
+            'currhours'=>'required',
+            'requiredforgrad'=>'required',
+            'comments'=>'required',
+        ]);
+*/
 
         $this->validate($request, [
             'studID' => 'required|numeric',
@@ -40,6 +52,7 @@ class FormController extends Controller
             'currhours' => 'required|numeric',
             'requiredforgrad' => 'required'
         ]);
+        
 
         $waiting_list_entry = new Waiting_List_Entry;
         $waiting_list_entry->list = rand(1,10000);

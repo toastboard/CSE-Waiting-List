@@ -130,11 +130,22 @@ return [
     */
 
     'custom' => [
+        'currhours' => [
+            'required' => 'The current hours field is required.',
+        ],
+
+        'requiredforgrad' => [
+            'required' => 'The required for graduation field needs to be selected.',
+
+        ],
+    ],
+    
+    /*
+    'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

@@ -17,6 +17,7 @@ class FormController extends Controller
      */
     public function index()
     {
+        $curryear = date('Y');
         $msuid = Auth::user()->msuid;
         $email = Auth::user()->email;
         $first_name = Auth::user()->first_name;
@@ -24,7 +25,7 @@ class FormController extends Controller
         $major = Auth::user()->major;
         $courses = Course::all()->pluck('full_name', 'full_name');
 
-        return view('pages.form', ['msuid' => $msuid, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses]);
+        return view('pages.form', ['curryear' => $curryear, 'msuid' => $msuid, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses]);
     }
 
     public function store(Request $request)
@@ -52,7 +53,6 @@ class FormController extends Controller
             'currhours' => 'required|numeric',
             'requiredforgrad' => 'required'
         ]);
-        
 
         $waiting_list_entry = new Waiting_List_Entry;
         $waiting_list_entry->list = rand(1,10000);
@@ -64,7 +64,9 @@ class FormController extends Controller
         $waiting_list_entry->course_selection = $request->input('course_num');
         $waiting_list_entry->type = $request->input('overtype');
         $waiting_list_entry->campus = $request->input('campus');
-        $waiting_list_entry->graduation_time = time();
+        // Constructs graduation date
+        $graddate = $request->input('graddate');
+        $waiting_list_entry->graduation_time = $graddate[0] . ' ' . $graddate[1];
         $waiting_list_entry->current_hours = $request->input('currhours');
         $waiting_list_entry->is_required = $request->input('requiredforgrad');
         $waiting_list_entry->comments = $request->input('comments');
@@ -76,11 +78,6 @@ class FormController extends Controller
         "campus"=>$request->input('campus'),
         "overtype"=>$request->input('overtype'),
         "comments"=>$request->input('comments'),
-        
-        
         ]);
-        
-    
     }
-    
 }

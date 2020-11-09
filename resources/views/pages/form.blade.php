@@ -51,8 +51,9 @@
         @enderror
     </div>
     <div class="form-group  ">
-        {{Form::label('graddate', 'Expected Graduation Date:')}}
-        {{Form::date('graddate', '', ['class' => 'form-control'])}}
+        {{Form::label('graddate[]', 'Expected Graduation Date:')}}
+        {{Form::select('graddate[0]', ['Spring' => 'Spring', 'Fall' => 'Fall', 'Summer' => 'Summer'], ['class' => 'form-control'])}}
+        {{Form::number('graddate[1]', $curryear, ['class' => 'form-control'])}}
     </div>
     <div class='form_group'>
         {{Form::label('currhours', 'Current Hours: ')}}

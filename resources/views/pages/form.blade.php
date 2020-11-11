@@ -53,17 +53,17 @@
     <div class="form-group  ">
         {{Form::label('graddate[]', 'Expected Graduation Date:')}}
         {{Form::select('graddate[0]', ['Spring' => 'Spring', 'Fall' => 'Fall', 'Summer' => 'Summer'], ['class' => 'form-control'])}}
-        {{Form::number('graddate[1]', $curryear, ['class' => 'form-control'])}}
+        {{Form::text('graddate[1]', $curryear, ['class' => 'form-control'])}}
+        @error('graddate.1')
+        <div class="alert-danger">{{$message}}</div>
+        @enderror
     </div>
     <div class='form_group'>
         {{Form::label('currhours', 'Current Hours: ')}}
-        {{Form::number('currhours', '', ['class' => 'form-control'])}}
-
+        {{Form::text('currhours', '', ['class' => 'form-control'])}}
         @error('currhours')
         <div class="alert-danger">{{$message}}</div>
         @enderror
-
-
     </div>
     <div class='form_group'>
         {{Form::label('requiredforgrad', 'Required for Graduation: ')}}

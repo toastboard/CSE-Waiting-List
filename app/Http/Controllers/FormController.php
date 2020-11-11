@@ -15,7 +15,7 @@ class FormController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($submit_arr = null)
     {
         $curryear = date('Y');
         $msuid = Auth::user()->msuid;
@@ -25,7 +25,14 @@ class FormController extends Controller
         $major = Auth::user()->major;
         $courses = Course::all()->pluck('full_name', 'full_name');
 
-        return view('pages.form', ['curryear' => $curryear, 'msuid' => $msuid, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses]);
+        $return_arr = ['curryear' => $curryear, 'msuid' => $msuid, 'email' => $email, 'first_name' => $first_name, 'last_name' => $last_name, 'major' => $major, 'courses' => $courses];
+
+        if (!is_null($submit_arr))
+        {
+            $return_arr = array_merge($return_arr, $submit_arr);
+        }
+
+        return view('pages.form', $return_arr);
     }
 
     public function store(Request $request)
@@ -44,6 +51,7 @@ class FormController extends Controller
         ]);
 */
 
+        $curryear = date('Y');
         $this->validate($request, [
             'studID' => 'required|numeric',
             'first_name' => 'required|alpha',
@@ -52,7 +60,8 @@ class FormController extends Controller
             'course_num' => 'required',
             'currhours' => 'required|numeric',
             'requiredforgrad' => 'required',
-            'studmajor'=> 'required'
+            'graddate.1' => 'required|numeric|min:' . strval($curryear) . '|max:' . strval($curryear + 8),
+            'studmajor'=> 'required|alpha'
         ]);
 
         $waiting_list_entry = new Waiting_List_Entry;
@@ -73,12 +82,8 @@ class FormController extends Controller
         $waiting_list_entry->comments = $request->input('comments');
         $waiting_list_entry->save();
 
-        
-        return view("pages.confirmation", 
-        ["course_num"=>$request->input('course_num'),
-        "campus"=>$request->input('campus'),
-        "overtype"=>$request->input('overtype'),
-        "comments"=>$request->input('comments'),
-        ]);
+        $submit_arr = ["course_num"=>$request->input('course_num'), "campus"=>$request->input('campus'), "overtype"=>$request->input('overtype'), "comments"=>$request->input('comments')];
+
+        return $this->index($submit_arr);
     }
 }

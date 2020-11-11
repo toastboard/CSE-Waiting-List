@@ -1,5 +1,7 @@
 <?php
 
+$curryear = date("Y");
+
 return [
 
     /*
@@ -132,16 +134,32 @@ return [
     'custom' => [
         'currhours' => [
             'required' => 'The current hours field is required.',
+            'numeric' => 'The current hours field must only contain numbers.'
+        ],
+
+        'first_name' => [
+            'alpha' => 'The first name field must only contain letters.'
+        ],
+
+        
+        'last_name' => [
+            'alpha' => 'The last name field must only contain letters.'
         ],
 
         'requiredforgrad' => [
-            'required' => 'The required for graduation field needs to be selected.',
+            'required' => 'The required for graduation field needs to be selected.'
+        ],
 
+        'graddate.1' => [
+            'required' => 'The graduation year field is required.',
+            'numeric' => 'The graduation year field must only contain numbers.',
+            'min' => 'The graduation year field must not be set before this year.',
+            'max' => 'The graduation year field must not be set past ' . strval($curryear + 8) . '.'
         ],
 
         'studmajor' => [
             'required' => 'The major field is required.',
-
+            'alpha' => 'The major field must only contain letters.'
         ],
 
     ],

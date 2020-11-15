@@ -66,7 +66,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $msuid_append = range(0, 6);
+        shuffle($msuid_append);
+        $msuid = "90" . implode("", $msuid_append);
+
         return User::create([
+            'msuid' => $msuid,
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'major' => $data['major'],

@@ -4,22 +4,22 @@
 
 @section('content')
 
-    <p>Dashboard</p>
+<h2>Dashboard</h2>
 
-    <a href="{{ route('form') }}">
+    <a class="btn btn-primary" href="{{ route('form') }}">
         Create new request
     </a>
     <form id="form" action="{{ route('form') }}" method="POST">
 	    {{ csrf_field() }}
     </form>
 
-    <br><br>
+    <br>
 
     <p>Previous requests:</p>
 
+    <br>
 
-    <br><br>
-	<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+	<a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 	    Logout
 	</a>
 

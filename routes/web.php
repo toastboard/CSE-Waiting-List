@@ -38,6 +38,10 @@ Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name
 
 Route::post('/form', [App\Http\Controllers\FormController::class, 'store']);
 
+Route::resource('entries', 'Waiting_List_EntryController')->middleware('auth');
+
+// Route::get('/entries', [App\Http\Controllers\Waiting_List_EntryController::class, 'index'])->name('entries');
+
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/logout', 'LoginController@logout');

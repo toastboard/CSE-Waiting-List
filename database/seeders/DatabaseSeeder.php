@@ -20,12 +20,15 @@ class DatabaseSeeder extends Seeder
         User::factory()
             ->times(20)
             ->create();
-            /*DB::table('users')->insert([
-                'first_name' => Str::random(10),
-                'last_name' => Str::random(10),
-                'email' => Str::random(10).'@msstate.edu',
-                'major' => Str::random(10),
-                'password' => Hash::make('password'),
-            ]);*/
+        DB::table('courses')->insert([
+            'field' => "CSE",
+            'course_number' => "4733",
+            'course_name' => 'Intro to Algorithms',
+        ]);
+        DB::table('courses')->insert([
+            'field' => "CSE",
+            'course_number' => "3213",
+            'course_name' => 'Software Engineering Senior Project 1',
+        ]);
     }
 }

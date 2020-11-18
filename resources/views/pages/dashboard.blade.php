@@ -15,7 +15,12 @@
 
     <br>
 
-    <p>Previous requests:</p>
+    <a class="btn btn-primary" href="/entries">
+        Previous requests
+    </a>
+    <form id="entries" action="/entries" method="POST">
+	    {{ csrf_field() }}
+    </form>
 
     <br>
 

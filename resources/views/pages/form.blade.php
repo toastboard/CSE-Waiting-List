@@ -94,6 +94,7 @@
     </form>
 
     <br>
+    <br>
 
 	<a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 	    Logout

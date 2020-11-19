@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('content')
-
     <div class="jumbotron text-center">
         <h1>{{$title}}</h1>
         <p>Choose to login or register</p>

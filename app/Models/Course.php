@@ -9,6 +9,11 @@ class Course extends Model
 {
     use HasFactory;
 
+    /**
+     * Creates a name based off of the course by concatenating the data within the fields.
+     * 
+     * 
+     */
     function getFullNameAttribute()
     {
         return "{$this->field} {$this->course_number} {$this->course_name}";

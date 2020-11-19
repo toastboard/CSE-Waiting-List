@@ -1,3 +1,5 @@
+{{-- Kept this in case it was to be used in the future --}}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +10,6 @@
         <title>{{config('app.name', 'Waitlist')}}</title>
 
     </head>
-        <!-- @include('inc.navbar') -->
         <div class="container">
             @yield('content')
         </div>

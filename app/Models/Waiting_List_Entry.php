@@ -12,6 +12,7 @@ class Waiting_List_Entry extends Model
     protected $table = 'waiting_list_entries';
     public $primaryKey = 'list';
 
+    // Establishes a belongs to relationship with the user.
     public function user()
     {
         return $this->belongsTo('App\Models\User');

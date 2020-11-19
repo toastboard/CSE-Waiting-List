@@ -25,6 +25,11 @@
         php artisan db:seed
 
     This will fill the database with the necessary tables and insert some data into the users and courses table for testing.
+    In the event that there is a database error or the unlikely case that the seeder randomly chooses the same number twice, run the following line
+
+        php artisan migrate:rollback
+
+    and then the two above lines afterwards.
 
 1. Ensure that the database tables are all properly created and the users and courses tables are filled with some data.
 

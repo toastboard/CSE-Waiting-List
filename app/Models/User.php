@@ -44,6 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Establishes a one to many relationship with the waiting list entries.
     public function waiting_list_entries()
     {
         return $this->hasMany('App\Models\Waiting_List_Entry');

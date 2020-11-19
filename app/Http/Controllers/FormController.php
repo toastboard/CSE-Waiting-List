@@ -11,7 +11,9 @@ use Auth;
 class FormController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Show the form page.
+     * Uses Auth package to grab user data.
+     * If called by the store function, will take the array that is passed as an argument and add it to the return array.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -35,22 +37,14 @@ class FormController extends Controller
         return view('pages.form', $return_arr);
     }
 
+    /**
+     * Stores a waiting list entry based on form data received.
+     * 
+     * @param  Request  $request 
+     * @return this->index()
+     */
     public function store(Request $request)
     {
-        // return view('pages.test')->with('test', $request->input('test'));
-/*
-        //validation rules
-        $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'overtype'=>'required',
-            'campus'=>'required',
-            'currhours'=>'required',
-            'requiredforgrad'=>'required',
-            'comments'=>'required',
-        ]);
-*/
-
         $curryear = date('Y');
         $this->validate($request, [
             'studID' => 'required|numeric',
@@ -74,7 +68,7 @@ class FormController extends Controller
         $waiting_list_entry->course_selection = $request->input('course_num');
         $waiting_list_entry->type = $request->input('overtype');
         $waiting_list_entry->campus = $request->input('campus');
-        // Constructs graduation date
+        // Graduation date (graduation_time) needs to be constructed
         $graddate = $request->input('graddate');
         $waiting_list_entry->graduation_time = $graddate[0] . ' ' . $graddate[1];
         $waiting_list_entry->current_hours = $request->input('currhours');

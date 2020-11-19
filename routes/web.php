@@ -29,19 +29,22 @@ Route::get('/users/{id}/{name}', function($id, $name) {
 
 */
 
-// Routes to home (sample form page) and login
+// Routes to the welcome page.
 Route::get('/', [PagesController::class, 'index'] );
 
 Auth::routes();
 
+// Route to get the form page.
 Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name('form')->middleware('auth');
 
+// Post route to submit a form into the store function.
 Route::post('/form', [App\Http\Controllers\FormController::class, 'store']);
 
+// Route to the waiting list entries.
 Route::resource('entries', 'Waiting_List_EntryController')->middleware('auth');
 
-// Route::get('/entries', [App\Http\Controllers\Waiting_List_EntryController::class, 'index'])->name('entries');
-
+// Route to the dashboard page
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
+// Route to the logoout function.
 Route::get('/logout', 'LoginController@logout');

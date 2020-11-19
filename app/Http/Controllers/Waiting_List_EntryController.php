@@ -23,6 +23,7 @@ class Waiting_List_EntryController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * NOTE: This is a part of the FormController store() method.
      *
      * @return \Illuminate\Http\Response
      */
@@ -45,8 +46,8 @@ class Waiting_List_EntryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $list_num
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function show($list_num)
     {

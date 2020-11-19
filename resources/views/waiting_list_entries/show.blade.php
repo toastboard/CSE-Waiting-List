@@ -8,6 +8,7 @@
         <h4>Major: {!!$entry->major!!}</h4>
         <h4>Campus: {!!$entry->campus!!}</h4>
         <h4>Required: {!!$entry->is_required!!}</h4>
+        <h4>Comments: {!!$entry->comments!!}</h4>
     @else
         <div class='alert alert-danger'>
             You do not have permission to view this entry.

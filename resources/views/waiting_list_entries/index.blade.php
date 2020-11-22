@@ -15,6 +15,8 @@
         <p>No entries were found.</p>
     @endif
 
+    <br>
+
     <a class="btn btn-primary" href="{{ route('dashboard') }}">
         Return to Dashboard
     </a>

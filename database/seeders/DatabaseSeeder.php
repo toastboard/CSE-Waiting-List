@@ -22,12 +22,17 @@ class DatabaseSeeder extends Seeder
             ->create();
         DB::table('courses')->insert([
             'field' => "CSE",
-            'course_number' => "4733",
+            'course_number' => "4733-01",
             'course_name' => 'Intro to Algorithms',
         ]);
         DB::table('courses')->insert([
             'field' => "CSE",
-            'course_number' => "3213",
+            'course_number' => "4733-02",
+            'course_name' => 'Intro to Algorithms',
+        ]);
+        DB::table('courses')->insert([
+            'field' => "CSE",
+            'course_number' => "3213-01",
             'course_name' => 'Software Engineering Senior Project 1',
         ]);
     }

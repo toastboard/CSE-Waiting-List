@@ -12,7 +12,7 @@ class Course extends Model
     /**
      * Creates a name based off of the course by concatenating the data within the fields.
      * 
-     * 
+     * @return string
      */
     function getFullNameAttribute()
     {

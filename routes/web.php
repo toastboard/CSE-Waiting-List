@@ -35,10 +35,10 @@ Route::get('/', [PagesController::class, 'index'] );
 Auth::routes();
 
 // Route to get the form page.
-Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name('form')->middleware('auth');
+Route::get('/form', [App\Http\Controllers\Waiting_List_EntryController::class, 'create'])->name('form')->middleware('auth');
 
 // Post route to submit a form into the store function.
-Route::post('/form', [App\Http\Controllers\FormController::class, 'store']);
+Route::post('/form', [App\Http\Controllers\Waiting_List_EntryController::class, 'store']);
 
 // Route to the waiting list entries.
 Route::resource('entries', 'Waiting_List_EntryController')->middleware('auth');

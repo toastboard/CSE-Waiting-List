@@ -4,8 +4,13 @@
     </div>
 @elseif(isset($overtype))
     <div class='alert alert-success'>
-        Form successfully submitted! You have created a {{ $overtype }} override request for the course {{ $course_num }} at {{ $campus }} campus.
+        Form successfully submitted! You have created a {{ $overtype }} override request for the course {{ $course_num }} at {{ $campus }} campus. <a href="/entries"> View your request list</a>
     </div>
+
+    <form id="entries" action="/entries" method="POST">
+	    {{ csrf_field() }}
+    </form>
+
 @endif
 
 @if(session('success'))
